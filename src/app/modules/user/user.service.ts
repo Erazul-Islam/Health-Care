@@ -1,19 +1,22 @@
-
+import * as bcrypt from 'bcrypt'
 import { PrismaClient, UserRole } from "../../../generated/prisma"
 
 const prisma = new PrismaClient()
 
 const createAdmin = async (data: any) => {
-    const userData = { email: data.admin.email, password: data.password, role: UserRole.ADMIN }
-    const result = await prisma.$transaction(async(tansactionClient : any) => {
-        const createdUserData = await tansactionClient.user.create({
-            data : userData
+
+    const hashedPassword = await bcrypt.hash(data.password,10)
+
+    const userData = { email: data.admin.email, password: hashedPassword, role: UserRole.ADMIN }
+    const result = await prisma.$transaction(async (tansactionClient: any) => {
+        await tansactionClient.user.create({
+            data: userData
         })
 
         const createdAdminData = await tansactionClient.admin.create({
-            data : data.admin
+            data: data.admin
         })
-        return {createdAdminData,createdUserData}
+        return createdAdminData
     })
     return result
 }
