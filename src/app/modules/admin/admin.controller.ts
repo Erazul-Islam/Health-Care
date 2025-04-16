@@ -1,10 +1,11 @@
 import { Request, Response } from "express"
-import { PrismaClient } from "../../../generated/prisma"
 import { adminService } from "./admin.service"
 
-const prisma = new PrismaClient
 
 const getAdminFromDB = async (req: Request, res: Response) => {
+
+    
+
 
     try {
         const result = await adminService.getAdmin(req.query)
