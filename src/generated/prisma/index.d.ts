@@ -2109,6 +2109,7 @@ export namespace Prisma {
     email: string | null
     profilePhoto: string | null
     contactNumber: string | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2119,6 +2120,7 @@ export namespace Prisma {
     email: string | null
     profilePhoto: string | null
     contactNumber: string | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2129,6 +2131,7 @@ export namespace Prisma {
     email: number
     profilePhoto: number
     contactNumber: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2141,6 +2144,7 @@ export namespace Prisma {
     email?: true
     profilePhoto?: true
     contactNumber?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2151,6 +2155,7 @@ export namespace Prisma {
     email?: true
     profilePhoto?: true
     contactNumber?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2161,6 +2166,7 @@ export namespace Prisma {
     email?: true
     profilePhoto?: true
     contactNumber?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2244,6 +2250,7 @@ export namespace Prisma {
     email: string
     profilePhoto: string | null
     contactNumber: string | null
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: AdminCountAggregateOutputType | null
@@ -2271,6 +2278,7 @@ export namespace Prisma {
     email?: boolean
     profilePhoto?: boolean
     contactNumber?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -2282,6 +2290,7 @@ export namespace Prisma {
     email?: boolean
     profilePhoto?: boolean
     contactNumber?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -2293,6 +2302,7 @@ export namespace Prisma {
     email?: boolean
     profilePhoto?: boolean
     contactNumber?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -2304,11 +2314,12 @@ export namespace Prisma {
     email?: boolean
     profilePhoto?: boolean
     contactNumber?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "profilePhoto" | "contactNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
+  export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "profilePhoto" | "contactNumber" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["admin"]>
   export type AdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2330,6 +2341,7 @@ export namespace Prisma {
       email: string
       profilePhoto: string | null
       contactNumber: string | null
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["admin"]>
@@ -2761,6 +2773,7 @@ export namespace Prisma {
     readonly email: FieldRef<"Admin", 'String'>
     readonly profilePhoto: FieldRef<"Admin", 'String'>
     readonly contactNumber: FieldRef<"Admin", 'String'>
+    readonly isDeleted: FieldRef<"Admin", 'Boolean'>
     readonly createdAt: FieldRef<"Admin", 'DateTime'>
     readonly updatedAt: FieldRef<"Admin", 'DateTime'>
   }
@@ -3211,6 +3224,7 @@ export namespace Prisma {
     email: 'email',
     profilePhoto: 'profilePhoto',
     contactNumber: 'contactNumber',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -3406,6 +3420,7 @@ export namespace Prisma {
     email?: StringFilter<"Admin"> | string
     profilePhoto?: StringNullableFilter<"Admin"> | string | null
     contactNumber?: StringNullableFilter<"Admin"> | string | null
+    isDeleted?: BoolFilter<"Admin"> | boolean
     createdAt?: DateTimeFilter<"Admin"> | Date | string
     updatedAt?: DateTimeFilter<"Admin"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -3417,6 +3432,7 @@ export namespace Prisma {
     email?: SortOrder
     profilePhoto?: SortOrderInput | SortOrder
     contactNumber?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -3431,6 +3447,7 @@ export namespace Prisma {
     name?: StringFilter<"Admin"> | string
     profilePhoto?: StringNullableFilter<"Admin"> | string | null
     contactNumber?: StringNullableFilter<"Admin"> | string | null
+    isDeleted?: BoolFilter<"Admin"> | boolean
     createdAt?: DateTimeFilter<"Admin"> | Date | string
     updatedAt?: DateTimeFilter<"Admin"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -3442,6 +3459,7 @@ export namespace Prisma {
     email?: SortOrder
     profilePhoto?: SortOrderInput | SortOrder
     contactNumber?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: AdminCountOrderByAggregateInput
@@ -3458,6 +3476,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Admin"> | string
     profilePhoto?: StringNullableWithAggregatesFilter<"Admin"> | string | null
     contactNumber?: StringNullableWithAggregatesFilter<"Admin"> | string | null
+    isDeleted?: BoolWithAggregatesFilter<"Admin"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
   }
@@ -3467,8 +3486,8 @@ export namespace Prisma {
     email: string
     password: string
     role: $Enums.UserRole
-    needPasswordChange: boolean
-    status: $Enums.UserStatus
+    needPasswordChange?: boolean
+    status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
     admin?: AdminCreateNestedOneWithoutUserInput
@@ -3479,8 +3498,8 @@ export namespace Prisma {
     email: string
     password: string
     role: $Enums.UserRole
-    needPasswordChange: boolean
-    status: $Enums.UserStatus
+    needPasswordChange?: boolean
+    status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
     admin?: AdminUncheckedCreateNestedOneWithoutUserInput
@@ -3515,8 +3534,8 @@ export namespace Prisma {
     email: string
     password: string
     role: $Enums.UserRole
-    needPasswordChange: boolean
-    status: $Enums.UserStatus
+    needPasswordChange?: boolean
+    status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3548,6 +3567,7 @@ export namespace Prisma {
     name: string
     profilePhoto?: string | null
     contactNumber?: string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutAdminInput
@@ -3559,6 +3579,7 @@ export namespace Prisma {
     email: string
     profilePhoto?: string | null
     contactNumber?: string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3568,6 +3589,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     profilePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     contactNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutAdminNestedInput
@@ -3579,6 +3601,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     profilePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     contactNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3589,6 +3612,7 @@ export namespace Prisma {
     email: string
     profilePhoto?: string | null
     contactNumber?: string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3598,6 +3622,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     profilePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     contactNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3608,6 +3633,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     profilePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     contactNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3786,6 +3812,7 @@ export namespace Prisma {
     email?: SortOrder
     profilePhoto?: SortOrder
     contactNumber?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3796,6 +3823,7 @@ export namespace Prisma {
     email?: SortOrder
     profilePhoto?: SortOrder
     contactNumber?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3806,6 +3834,7 @@ export namespace Prisma {
     email?: SortOrder
     profilePhoto?: SortOrder
     contactNumber?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4059,6 +4088,7 @@ export namespace Prisma {
     name: string
     profilePhoto?: string | null
     contactNumber?: string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4068,6 +4098,7 @@ export namespace Prisma {
     name: string
     profilePhoto?: string | null
     contactNumber?: string | null
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4093,6 +4124,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     profilePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     contactNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4102,6 +4134,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     profilePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     contactNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4111,8 +4144,8 @@ export namespace Prisma {
     email: string
     password: string
     role: $Enums.UserRole
-    needPasswordChange: boolean
-    status: $Enums.UserStatus
+    needPasswordChange?: boolean
+    status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4122,8 +4155,8 @@ export namespace Prisma {
     email: string
     password: string
     role: $Enums.UserRole
-    needPasswordChange: boolean
-    status: $Enums.UserStatus
+    needPasswordChange?: boolean
+    status?: $Enums.UserStatus
     createdAt?: Date | string
     updatedAt?: Date | string
   }
