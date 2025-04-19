@@ -4,5 +4,6 @@ import { bookController } from './book.controller'
 const router = express.Router()
 
 router.post('/',bookController.createBookController)
+router.get('/',bookController.getAllBooks)
 
 export const bookRouter = router

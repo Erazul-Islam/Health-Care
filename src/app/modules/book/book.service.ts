@@ -9,6 +9,13 @@ const addNewBookService = async (payload : Book) => {
     return result
 }
 
+const getAllBooks = async () => {
+    const result = await prisma.book.findMany()
+
+    return result
+}
+
 export const bookServices = {
-    addNewBookService
+    addNewBookService,
+    getAllBooks
 }
