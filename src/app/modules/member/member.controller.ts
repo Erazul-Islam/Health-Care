@@ -21,7 +21,7 @@ const createMemberController = async (req: Request, res: Response) => {
 
 }
 
-const   getAllMembers = async (req: Request, res: Response) => {
+const getAllMembers = async (req: Request, res: Response) => {
 
     try {
         const result = await memberService.getAllMembers()
@@ -39,8 +39,29 @@ const   getAllMembers = async (req: Request, res: Response) => {
     }
 
 }
+const getSingleMember = async (req: Request, res: Response) => {
+
+    try {
+
+        const id = req.params.id
+        const result = await memberService.getSingleMember(id)
+
+        res.status(201).json({
+            success: true,
+            status: 201,
+            message: " Member retrived successfully",
+            data: result
+        })
+    }
+
+    catch (err) {
+        console.log(err)
+    }
+
+}
 
 export const memberController = {
     createMemberController,
-    getAllMembers
+    getAllMembers,
+    getSingleMember
 }
