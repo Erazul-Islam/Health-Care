@@ -139,6 +139,31 @@ exports.Prisma.AdminScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.BookScalarFieldEnum = {
+  bookId: 'bookId',
+  title: 'title',
+  genre: 'genre',
+  publishedYear: 'publishedYear',
+  totalCopies: 'totalCopies',
+  availableCopies: 'availableCopies'
+};
+
+exports.Prisma.MemberScalarFieldEnum = {
+  memberId: 'memberId',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  membershipDate: 'membershipDate'
+};
+
+exports.Prisma.BorrowRecordScalarFieldEnum = {
+  borrowId: 'borrowId',
+  borrowDate: 'borrowDate',
+  returnDate: 'returnDate',
+  bookId: 'bookId',
+  memberId: 'memberId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -167,7 +192,10 @@ exports.UserStatus = exports.$Enums.UserStatus = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Admin: 'Admin'
+  Admin: 'Admin',
+  Book: 'Book',
+  Member: 'Member',
+  BorrowRecord: 'BorrowRecord'
 };
 
 /**

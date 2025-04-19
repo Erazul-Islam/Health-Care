@@ -23,6 +23,21 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type Admin = $Result.DefaultSelection<Prisma.$AdminPayload>
+/**
+ * Model Book
+ * 
+ */
+export type Book = $Result.DefaultSelection<Prisma.$BookPayload>
+/**
+ * Model Member
+ * 
+ */
+export type Member = $Result.DefaultSelection<Prisma.$MemberPayload>
+/**
+ * Model BorrowRecord
+ * 
+ */
+export type BorrowRecord = $Result.DefaultSelection<Prisma.$BorrowRecordPayload>
 
 /**
  * Enums
@@ -199,6 +214,36 @@ export class PrismaClient<
     * ```
     */
   get admin(): Prisma.AdminDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.book`: Exposes CRUD operations for the **Book** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Books
+    * const books = await prisma.book.findMany()
+    * ```
+    */
+  get book(): Prisma.BookDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.member`: Exposes CRUD operations for the **Member** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Members
+    * const members = await prisma.member.findMany()
+    * ```
+    */
+  get member(): Prisma.MemberDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.borrowRecord`: Exposes CRUD operations for the **BorrowRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BorrowRecords
+    * const borrowRecords = await prisma.borrowRecord.findMany()
+    * ```
+    */
+  get borrowRecord(): Prisma.BorrowRecordDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -640,7 +685,10 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Admin: 'Admin'
+    Admin: 'Admin',
+    Book: 'Book',
+    Member: 'Member',
+    BorrowRecord: 'BorrowRecord'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -659,7 +707,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "admin"
+      modelProps: "user" | "admin" | "book" | "member" | "borrowRecord"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -811,6 +859,228 @@ export namespace Prisma {
           }
         }
       }
+      Book: {
+        payload: Prisma.$BookPayload<ExtArgs>
+        fields: Prisma.BookFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BookFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BookFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>
+          }
+          findFirst: {
+            args: Prisma.BookFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BookFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>
+          }
+          findMany: {
+            args: Prisma.BookFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>[]
+          }
+          create: {
+            args: Prisma.BookCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>
+          }
+          createMany: {
+            args: Prisma.BookCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BookCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>[]
+          }
+          delete: {
+            args: Prisma.BookDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>
+          }
+          update: {
+            args: Prisma.BookUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>
+          }
+          deleteMany: {
+            args: Prisma.BookDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BookUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BookUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>[]
+          }
+          upsert: {
+            args: Prisma.BookUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookPayload>
+          }
+          aggregate: {
+            args: Prisma.BookAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBook>
+          }
+          groupBy: {
+            args: Prisma.BookGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BookGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BookCountArgs<ExtArgs>
+            result: $Utils.Optional<BookCountAggregateOutputType> | number
+          }
+        }
+      }
+      Member: {
+        payload: Prisma.$MemberPayload<ExtArgs>
+        fields: Prisma.MemberFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MemberFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MemberFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>
+          }
+          findFirst: {
+            args: Prisma.MemberFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MemberFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>
+          }
+          findMany: {
+            args: Prisma.MemberFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>[]
+          }
+          create: {
+            args: Prisma.MemberCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>
+          }
+          createMany: {
+            args: Prisma.MemberCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MemberCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>[]
+          }
+          delete: {
+            args: Prisma.MemberDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>
+          }
+          update: {
+            args: Prisma.MemberUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>
+          }
+          deleteMany: {
+            args: Prisma.MemberDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MemberUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MemberUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>[]
+          }
+          upsert: {
+            args: Prisma.MemberUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MemberPayload>
+          }
+          aggregate: {
+            args: Prisma.MemberAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMember>
+          }
+          groupBy: {
+            args: Prisma.MemberGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MemberGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MemberCountArgs<ExtArgs>
+            result: $Utils.Optional<MemberCountAggregateOutputType> | number
+          }
+        }
+      }
+      BorrowRecord: {
+        payload: Prisma.$BorrowRecordPayload<ExtArgs>
+        fields: Prisma.BorrowRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BorrowRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BorrowRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.BorrowRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BorrowRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>
+          }
+          findMany: {
+            args: Prisma.BorrowRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>[]
+          }
+          create: {
+            args: Prisma.BorrowRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>
+          }
+          createMany: {
+            args: Prisma.BorrowRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BorrowRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.BorrowRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>
+          }
+          update: {
+            args: Prisma.BorrowRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.BorrowRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BorrowRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BorrowRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.BorrowRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BorrowRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.BorrowRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBorrowRecord>
+          }
+          groupBy: {
+            args: Prisma.BorrowRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BorrowRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BorrowRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<BorrowRecordCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -897,6 +1167,9 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     admin?: AdminOmit
+    book?: BookOmit
+    member?: MemberOmit
+    borrowRecord?: BorrowRecordOmit
   }
 
   /* Types for Logging */
@@ -985,6 +1258,67 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type BookCountOutputType
+   */
+
+  export type BookCountOutputType = {
+    borrowRecords: number
+  }
+
+  export type BookCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    borrowRecords?: boolean | BookCountOutputTypeCountBorrowRecordsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BookCountOutputType without action
+   */
+  export type BookCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BookCountOutputType
+     */
+    select?: BookCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BookCountOutputType without action
+   */
+  export type BookCountOutputTypeCountBorrowRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BorrowRecordWhereInput
+  }
+
+
+  /**
+   * Count Type MemberCountOutputType
+   */
+
+  export type MemberCountOutputType = {
+    borrowRecords: number
+  }
+
+  export type MemberCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    borrowRecords?: boolean | MemberCountOutputTypeCountBorrowRecordsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MemberCountOutputType without action
+   */
+  export type MemberCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MemberCountOutputType
+     */
+    select?: MemberCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MemberCountOutputType without action
+   */
+  export type MemberCountOutputTypeCountBorrowRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BorrowRecordWhereInput
+  }
 
 
   /**
@@ -3191,6 +3525,3267 @@ export namespace Prisma {
 
 
   /**
+   * Model Book
+   */
+
+  export type AggregateBook = {
+    _count: BookCountAggregateOutputType | null
+    _avg: BookAvgAggregateOutputType | null
+    _sum: BookSumAggregateOutputType | null
+    _min: BookMinAggregateOutputType | null
+    _max: BookMaxAggregateOutputType | null
+  }
+
+  export type BookAvgAggregateOutputType = {
+    publishedYear: number | null
+    totalCopies: number | null
+    availableCopies: number | null
+  }
+
+  export type BookSumAggregateOutputType = {
+    publishedYear: number | null
+    totalCopies: number | null
+    availableCopies: number | null
+  }
+
+  export type BookMinAggregateOutputType = {
+    bookId: string | null
+    title: string | null
+    genre: string | null
+    publishedYear: number | null
+    totalCopies: number | null
+    availableCopies: number | null
+  }
+
+  export type BookMaxAggregateOutputType = {
+    bookId: string | null
+    title: string | null
+    genre: string | null
+    publishedYear: number | null
+    totalCopies: number | null
+    availableCopies: number | null
+  }
+
+  export type BookCountAggregateOutputType = {
+    bookId: number
+    title: number
+    genre: number
+    publishedYear: number
+    totalCopies: number
+    availableCopies: number
+    _all: number
+  }
+
+
+  export type BookAvgAggregateInputType = {
+    publishedYear?: true
+    totalCopies?: true
+    availableCopies?: true
+  }
+
+  export type BookSumAggregateInputType = {
+    publishedYear?: true
+    totalCopies?: true
+    availableCopies?: true
+  }
+
+  export type BookMinAggregateInputType = {
+    bookId?: true
+    title?: true
+    genre?: true
+    publishedYear?: true
+    totalCopies?: true
+    availableCopies?: true
+  }
+
+  export type BookMaxAggregateInputType = {
+    bookId?: true
+    title?: true
+    genre?: true
+    publishedYear?: true
+    totalCopies?: true
+    availableCopies?: true
+  }
+
+  export type BookCountAggregateInputType = {
+    bookId?: true
+    title?: true
+    genre?: true
+    publishedYear?: true
+    totalCopies?: true
+    availableCopies?: true
+    _all?: true
+  }
+
+  export type BookAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Book to aggregate.
+     */
+    where?: BookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Books to fetch.
+     */
+    orderBy?: BookOrderByWithRelationInput | BookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Books from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Books.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Books
+    **/
+    _count?: true | BookCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BookAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BookSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BookMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BookMaxAggregateInputType
+  }
+
+  export type GetBookAggregateType<T extends BookAggregateArgs> = {
+        [P in keyof T & keyof AggregateBook]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBook[P]>
+      : GetScalarType<T[P], AggregateBook[P]>
+  }
+
+
+
+
+  export type BookGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookWhereInput
+    orderBy?: BookOrderByWithAggregationInput | BookOrderByWithAggregationInput[]
+    by: BookScalarFieldEnum[] | BookScalarFieldEnum
+    having?: BookScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BookCountAggregateInputType | true
+    _avg?: BookAvgAggregateInputType
+    _sum?: BookSumAggregateInputType
+    _min?: BookMinAggregateInputType
+    _max?: BookMaxAggregateInputType
+  }
+
+  export type BookGroupByOutputType = {
+    bookId: string
+    title: string
+    genre: string
+    publishedYear: number
+    totalCopies: number
+    availableCopies: number
+    _count: BookCountAggregateOutputType | null
+    _avg: BookAvgAggregateOutputType | null
+    _sum: BookSumAggregateOutputType | null
+    _min: BookMinAggregateOutputType | null
+    _max: BookMaxAggregateOutputType | null
+  }
+
+  type GetBookGroupByPayload<T extends BookGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BookGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BookGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BookGroupByOutputType[P]>
+            : GetScalarType<T[P], BookGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BookSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    bookId?: boolean
+    title?: boolean
+    genre?: boolean
+    publishedYear?: boolean
+    totalCopies?: boolean
+    availableCopies?: boolean
+    borrowRecords?: boolean | Book$borrowRecordsArgs<ExtArgs>
+    _count?: boolean | BookCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["book"]>
+
+  export type BookSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    bookId?: boolean
+    title?: boolean
+    genre?: boolean
+    publishedYear?: boolean
+    totalCopies?: boolean
+    availableCopies?: boolean
+  }, ExtArgs["result"]["book"]>
+
+  export type BookSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    bookId?: boolean
+    title?: boolean
+    genre?: boolean
+    publishedYear?: boolean
+    totalCopies?: boolean
+    availableCopies?: boolean
+  }, ExtArgs["result"]["book"]>
+
+  export type BookSelectScalar = {
+    bookId?: boolean
+    title?: boolean
+    genre?: boolean
+    publishedYear?: boolean
+    totalCopies?: boolean
+    availableCopies?: boolean
+  }
+
+  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"bookId" | "title" | "genre" | "publishedYear" | "totalCopies" | "availableCopies", ExtArgs["result"]["book"]>
+  export type BookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    borrowRecords?: boolean | Book$borrowRecordsArgs<ExtArgs>
+    _count?: boolean | BookCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BookIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type BookIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $BookPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Book"
+    objects: {
+      borrowRecords: Prisma.$BorrowRecordPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      bookId: string
+      title: string
+      genre: string
+      publishedYear: number
+      totalCopies: number
+      availableCopies: number
+    }, ExtArgs["result"]["book"]>
+    composites: {}
+  }
+
+  type BookGetPayload<S extends boolean | null | undefined | BookDefaultArgs> = $Result.GetResult<Prisma.$BookPayload, S>
+
+  type BookCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BookFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BookCountAggregateInputType | true
+    }
+
+  export interface BookDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Book'], meta: { name: 'Book' } }
+    /**
+     * Find zero or one Book that matches the filter.
+     * @param {BookFindUniqueArgs} args - Arguments to find a Book
+     * @example
+     * // Get one Book
+     * const book = await prisma.book.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BookFindUniqueArgs>(args: SelectSubset<T, BookFindUniqueArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Book that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BookFindUniqueOrThrowArgs} args - Arguments to find a Book
+     * @example
+     * // Get one Book
+     * const book = await prisma.book.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BookFindUniqueOrThrowArgs>(args: SelectSubset<T, BookFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Book that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookFindFirstArgs} args - Arguments to find a Book
+     * @example
+     * // Get one Book
+     * const book = await prisma.book.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BookFindFirstArgs>(args?: SelectSubset<T, BookFindFirstArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Book that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookFindFirstOrThrowArgs} args - Arguments to find a Book
+     * @example
+     * // Get one Book
+     * const book = await prisma.book.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BookFindFirstOrThrowArgs>(args?: SelectSubset<T, BookFindFirstOrThrowArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Books that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Books
+     * const books = await prisma.book.findMany()
+     * 
+     * // Get first 10 Books
+     * const books = await prisma.book.findMany({ take: 10 })
+     * 
+     * // Only select the `bookId`
+     * const bookWithBookIdOnly = await prisma.book.findMany({ select: { bookId: true } })
+     * 
+     */
+    findMany<T extends BookFindManyArgs>(args?: SelectSubset<T, BookFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Book.
+     * @param {BookCreateArgs} args - Arguments to create a Book.
+     * @example
+     * // Create one Book
+     * const Book = await prisma.book.create({
+     *   data: {
+     *     // ... data to create a Book
+     *   }
+     * })
+     * 
+     */
+    create<T extends BookCreateArgs>(args: SelectSubset<T, BookCreateArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Books.
+     * @param {BookCreateManyArgs} args - Arguments to create many Books.
+     * @example
+     * // Create many Books
+     * const book = await prisma.book.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BookCreateManyArgs>(args?: SelectSubset<T, BookCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Books and returns the data saved in the database.
+     * @param {BookCreateManyAndReturnArgs} args - Arguments to create many Books.
+     * @example
+     * // Create many Books
+     * const book = await prisma.book.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Books and only return the `bookId`
+     * const bookWithBookIdOnly = await prisma.book.createManyAndReturn({
+     *   select: { bookId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BookCreateManyAndReturnArgs>(args?: SelectSubset<T, BookCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Book.
+     * @param {BookDeleteArgs} args - Arguments to delete one Book.
+     * @example
+     * // Delete one Book
+     * const Book = await prisma.book.delete({
+     *   where: {
+     *     // ... filter to delete one Book
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BookDeleteArgs>(args: SelectSubset<T, BookDeleteArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Book.
+     * @param {BookUpdateArgs} args - Arguments to update one Book.
+     * @example
+     * // Update one Book
+     * const book = await prisma.book.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BookUpdateArgs>(args: SelectSubset<T, BookUpdateArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Books.
+     * @param {BookDeleteManyArgs} args - Arguments to filter Books to delete.
+     * @example
+     * // Delete a few Books
+     * const { count } = await prisma.book.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BookDeleteManyArgs>(args?: SelectSubset<T, BookDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Books.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Books
+     * const book = await prisma.book.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BookUpdateManyArgs>(args: SelectSubset<T, BookUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Books and returns the data updated in the database.
+     * @param {BookUpdateManyAndReturnArgs} args - Arguments to update many Books.
+     * @example
+     * // Update many Books
+     * const book = await prisma.book.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Books and only return the `bookId`
+     * const bookWithBookIdOnly = await prisma.book.updateManyAndReturn({
+     *   select: { bookId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BookUpdateManyAndReturnArgs>(args: SelectSubset<T, BookUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Book.
+     * @param {BookUpsertArgs} args - Arguments to update or create a Book.
+     * @example
+     * // Update or create a Book
+     * const book = await prisma.book.upsert({
+     *   create: {
+     *     // ... data to create a Book
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Book we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BookUpsertArgs>(args: SelectSubset<T, BookUpsertArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Books.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookCountArgs} args - Arguments to filter Books to count.
+     * @example
+     * // Count the number of Books
+     * const count = await prisma.book.count({
+     *   where: {
+     *     // ... the filter for the Books we want to count
+     *   }
+     * })
+    **/
+    count<T extends BookCountArgs>(
+      args?: Subset<T, BookCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BookCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Book.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BookAggregateArgs>(args: Subset<T, BookAggregateArgs>): Prisma.PrismaPromise<GetBookAggregateType<T>>
+
+    /**
+     * Group by Book.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BookGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BookGroupByArgs['orderBy'] }
+        : { orderBy?: BookGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BookGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBookGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Book model
+   */
+  readonly fields: BookFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Book.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BookClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    borrowRecords<T extends Book$borrowRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Book$borrowRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Book model
+   */
+  interface BookFieldRefs {
+    readonly bookId: FieldRef<"Book", 'String'>
+    readonly title: FieldRef<"Book", 'String'>
+    readonly genre: FieldRef<"Book", 'String'>
+    readonly publishedYear: FieldRef<"Book", 'Int'>
+    readonly totalCopies: FieldRef<"Book", 'Int'>
+    readonly availableCopies: FieldRef<"Book", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Book findUnique
+   */
+  export type BookFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * Filter, which Book to fetch.
+     */
+    where: BookWhereUniqueInput
+  }
+
+  /**
+   * Book findUniqueOrThrow
+   */
+  export type BookFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * Filter, which Book to fetch.
+     */
+    where: BookWhereUniqueInput
+  }
+
+  /**
+   * Book findFirst
+   */
+  export type BookFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * Filter, which Book to fetch.
+     */
+    where?: BookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Books to fetch.
+     */
+    orderBy?: BookOrderByWithRelationInput | BookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Books.
+     */
+    cursor?: BookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Books from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Books.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Books.
+     */
+    distinct?: BookScalarFieldEnum | BookScalarFieldEnum[]
+  }
+
+  /**
+   * Book findFirstOrThrow
+   */
+  export type BookFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * Filter, which Book to fetch.
+     */
+    where?: BookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Books to fetch.
+     */
+    orderBy?: BookOrderByWithRelationInput | BookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Books.
+     */
+    cursor?: BookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Books from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Books.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Books.
+     */
+    distinct?: BookScalarFieldEnum | BookScalarFieldEnum[]
+  }
+
+  /**
+   * Book findMany
+   */
+  export type BookFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * Filter, which Books to fetch.
+     */
+    where?: BookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Books to fetch.
+     */
+    orderBy?: BookOrderByWithRelationInput | BookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Books.
+     */
+    cursor?: BookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Books from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Books.
+     */
+    skip?: number
+    distinct?: BookScalarFieldEnum | BookScalarFieldEnum[]
+  }
+
+  /**
+   * Book create
+   */
+  export type BookCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Book.
+     */
+    data: XOR<BookCreateInput, BookUncheckedCreateInput>
+  }
+
+  /**
+   * Book createMany
+   */
+  export type BookCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Books.
+     */
+    data: BookCreateManyInput | BookCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Book createManyAndReturn
+   */
+  export type BookCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * The data used to create many Books.
+     */
+    data: BookCreateManyInput | BookCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Book update
+   */
+  export type BookUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Book.
+     */
+    data: XOR<BookUpdateInput, BookUncheckedUpdateInput>
+    /**
+     * Choose, which Book to update.
+     */
+    where: BookWhereUniqueInput
+  }
+
+  /**
+   * Book updateMany
+   */
+  export type BookUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Books.
+     */
+    data: XOR<BookUpdateManyMutationInput, BookUncheckedUpdateManyInput>
+    /**
+     * Filter which Books to update
+     */
+    where?: BookWhereInput
+    /**
+     * Limit how many Books to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Book updateManyAndReturn
+   */
+  export type BookUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * The data used to update Books.
+     */
+    data: XOR<BookUpdateManyMutationInput, BookUncheckedUpdateManyInput>
+    /**
+     * Filter which Books to update
+     */
+    where?: BookWhereInput
+    /**
+     * Limit how many Books to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Book upsert
+   */
+  export type BookUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Book to update in case it exists.
+     */
+    where: BookWhereUniqueInput
+    /**
+     * In case the Book found by the `where` argument doesn't exist, create a new Book with this data.
+     */
+    create: XOR<BookCreateInput, BookUncheckedCreateInput>
+    /**
+     * In case the Book was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BookUpdateInput, BookUncheckedUpdateInput>
+  }
+
+  /**
+   * Book delete
+   */
+  export type BookDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+    /**
+     * Filter which Book to delete.
+     */
+    where: BookWhereUniqueInput
+  }
+
+  /**
+   * Book deleteMany
+   */
+  export type BookDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Books to delete
+     */
+    where?: BookWhereInput
+    /**
+     * Limit how many Books to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Book.borrowRecords
+   */
+  export type Book$borrowRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    where?: BorrowRecordWhereInput
+    orderBy?: BorrowRecordOrderByWithRelationInput | BorrowRecordOrderByWithRelationInput[]
+    cursor?: BorrowRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BorrowRecordScalarFieldEnum | BorrowRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Book without action
+   */
+  export type BookDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Book
+     */
+    select?: BookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Book
+     */
+    omit?: BookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Member
+   */
+
+  export type AggregateMember = {
+    _count: MemberCountAggregateOutputType | null
+    _min: MemberMinAggregateOutputType | null
+    _max: MemberMaxAggregateOutputType | null
+  }
+
+  export type MemberMinAggregateOutputType = {
+    memberId: string | null
+    name: string | null
+    email: string | null
+    phone: string | null
+    membershipDate: Date | null
+  }
+
+  export type MemberMaxAggregateOutputType = {
+    memberId: string | null
+    name: string | null
+    email: string | null
+    phone: string | null
+    membershipDate: Date | null
+  }
+
+  export type MemberCountAggregateOutputType = {
+    memberId: number
+    name: number
+    email: number
+    phone: number
+    membershipDate: number
+    _all: number
+  }
+
+
+  export type MemberMinAggregateInputType = {
+    memberId?: true
+    name?: true
+    email?: true
+    phone?: true
+    membershipDate?: true
+  }
+
+  export type MemberMaxAggregateInputType = {
+    memberId?: true
+    name?: true
+    email?: true
+    phone?: true
+    membershipDate?: true
+  }
+
+  export type MemberCountAggregateInputType = {
+    memberId?: true
+    name?: true
+    email?: true
+    phone?: true
+    membershipDate?: true
+    _all?: true
+  }
+
+  export type MemberAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Member to aggregate.
+     */
+    where?: MemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Members to fetch.
+     */
+    orderBy?: MemberOrderByWithRelationInput | MemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Members from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Members.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Members
+    **/
+    _count?: true | MemberCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MemberMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MemberMaxAggregateInputType
+  }
+
+  export type GetMemberAggregateType<T extends MemberAggregateArgs> = {
+        [P in keyof T & keyof AggregateMember]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMember[P]>
+      : GetScalarType<T[P], AggregateMember[P]>
+  }
+
+
+
+
+  export type MemberGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MemberWhereInput
+    orderBy?: MemberOrderByWithAggregationInput | MemberOrderByWithAggregationInput[]
+    by: MemberScalarFieldEnum[] | MemberScalarFieldEnum
+    having?: MemberScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MemberCountAggregateInputType | true
+    _min?: MemberMinAggregateInputType
+    _max?: MemberMaxAggregateInputType
+  }
+
+  export type MemberGroupByOutputType = {
+    memberId: string
+    name: string
+    email: string
+    phone: string
+    membershipDate: Date
+    _count: MemberCountAggregateOutputType | null
+    _min: MemberMinAggregateOutputType | null
+    _max: MemberMaxAggregateOutputType | null
+  }
+
+  type GetMemberGroupByPayload<T extends MemberGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MemberGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MemberGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MemberGroupByOutputType[P]>
+            : GetScalarType<T[P], MemberGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MemberSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    memberId?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    membershipDate?: boolean
+    borrowRecords?: boolean | Member$borrowRecordsArgs<ExtArgs>
+    _count?: boolean | MemberCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["member"]>
+
+  export type MemberSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    memberId?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    membershipDate?: boolean
+  }, ExtArgs["result"]["member"]>
+
+  export type MemberSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    memberId?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    membershipDate?: boolean
+  }, ExtArgs["result"]["member"]>
+
+  export type MemberSelectScalar = {
+    memberId?: boolean
+    name?: boolean
+    email?: boolean
+    phone?: boolean
+    membershipDate?: boolean
+  }
+
+  export type MemberOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"memberId" | "name" | "email" | "phone" | "membershipDate", ExtArgs["result"]["member"]>
+  export type MemberInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    borrowRecords?: boolean | Member$borrowRecordsArgs<ExtArgs>
+    _count?: boolean | MemberCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type MemberIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type MemberIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $MemberPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Member"
+    objects: {
+      borrowRecords: Prisma.$BorrowRecordPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      memberId: string
+      name: string
+      email: string
+      phone: string
+      membershipDate: Date
+    }, ExtArgs["result"]["member"]>
+    composites: {}
+  }
+
+  type MemberGetPayload<S extends boolean | null | undefined | MemberDefaultArgs> = $Result.GetResult<Prisma.$MemberPayload, S>
+
+  type MemberCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MemberFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MemberCountAggregateInputType | true
+    }
+
+  export interface MemberDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Member'], meta: { name: 'Member' } }
+    /**
+     * Find zero or one Member that matches the filter.
+     * @param {MemberFindUniqueArgs} args - Arguments to find a Member
+     * @example
+     * // Get one Member
+     * const member = await prisma.member.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MemberFindUniqueArgs>(args: SelectSubset<T, MemberFindUniqueArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Member that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MemberFindUniqueOrThrowArgs} args - Arguments to find a Member
+     * @example
+     * // Get one Member
+     * const member = await prisma.member.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MemberFindUniqueOrThrowArgs>(args: SelectSubset<T, MemberFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Member that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MemberFindFirstArgs} args - Arguments to find a Member
+     * @example
+     * // Get one Member
+     * const member = await prisma.member.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MemberFindFirstArgs>(args?: SelectSubset<T, MemberFindFirstArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Member that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MemberFindFirstOrThrowArgs} args - Arguments to find a Member
+     * @example
+     * // Get one Member
+     * const member = await prisma.member.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MemberFindFirstOrThrowArgs>(args?: SelectSubset<T, MemberFindFirstOrThrowArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Members that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MemberFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Members
+     * const members = await prisma.member.findMany()
+     * 
+     * // Get first 10 Members
+     * const members = await prisma.member.findMany({ take: 10 })
+     * 
+     * // Only select the `memberId`
+     * const memberWithMemberIdOnly = await prisma.member.findMany({ select: { memberId: true } })
+     * 
+     */
+    findMany<T extends MemberFindManyArgs>(args?: SelectSubset<T, MemberFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Member.
+     * @param {MemberCreateArgs} args - Arguments to create a Member.
+     * @example
+     * // Create one Member
+     * const Member = await prisma.member.create({
+     *   data: {
+     *     // ... data to create a Member
+     *   }
+     * })
+     * 
+     */
+    create<T extends MemberCreateArgs>(args: SelectSubset<T, MemberCreateArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Members.
+     * @param {MemberCreateManyArgs} args - Arguments to create many Members.
+     * @example
+     * // Create many Members
+     * const member = await prisma.member.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MemberCreateManyArgs>(args?: SelectSubset<T, MemberCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Members and returns the data saved in the database.
+     * @param {MemberCreateManyAndReturnArgs} args - Arguments to create many Members.
+     * @example
+     * // Create many Members
+     * const member = await prisma.member.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Members and only return the `memberId`
+     * const memberWithMemberIdOnly = await prisma.member.createManyAndReturn({
+     *   select: { memberId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MemberCreateManyAndReturnArgs>(args?: SelectSubset<T, MemberCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Member.
+     * @param {MemberDeleteArgs} args - Arguments to delete one Member.
+     * @example
+     * // Delete one Member
+     * const Member = await prisma.member.delete({
+     *   where: {
+     *     // ... filter to delete one Member
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MemberDeleteArgs>(args: SelectSubset<T, MemberDeleteArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Member.
+     * @param {MemberUpdateArgs} args - Arguments to update one Member.
+     * @example
+     * // Update one Member
+     * const member = await prisma.member.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MemberUpdateArgs>(args: SelectSubset<T, MemberUpdateArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Members.
+     * @param {MemberDeleteManyArgs} args - Arguments to filter Members to delete.
+     * @example
+     * // Delete a few Members
+     * const { count } = await prisma.member.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MemberDeleteManyArgs>(args?: SelectSubset<T, MemberDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Members.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MemberUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Members
+     * const member = await prisma.member.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MemberUpdateManyArgs>(args: SelectSubset<T, MemberUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Members and returns the data updated in the database.
+     * @param {MemberUpdateManyAndReturnArgs} args - Arguments to update many Members.
+     * @example
+     * // Update many Members
+     * const member = await prisma.member.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Members and only return the `memberId`
+     * const memberWithMemberIdOnly = await prisma.member.updateManyAndReturn({
+     *   select: { memberId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MemberUpdateManyAndReturnArgs>(args: SelectSubset<T, MemberUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Member.
+     * @param {MemberUpsertArgs} args - Arguments to update or create a Member.
+     * @example
+     * // Update or create a Member
+     * const member = await prisma.member.upsert({
+     *   create: {
+     *     // ... data to create a Member
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Member we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MemberUpsertArgs>(args: SelectSubset<T, MemberUpsertArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Members.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MemberCountArgs} args - Arguments to filter Members to count.
+     * @example
+     * // Count the number of Members
+     * const count = await prisma.member.count({
+     *   where: {
+     *     // ... the filter for the Members we want to count
+     *   }
+     * })
+    **/
+    count<T extends MemberCountArgs>(
+      args?: Subset<T, MemberCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MemberCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Member.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MemberAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MemberAggregateArgs>(args: Subset<T, MemberAggregateArgs>): Prisma.PrismaPromise<GetMemberAggregateType<T>>
+
+    /**
+     * Group by Member.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MemberGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MemberGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MemberGroupByArgs['orderBy'] }
+        : { orderBy?: MemberGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MemberGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMemberGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Member model
+   */
+  readonly fields: MemberFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Member.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MemberClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    borrowRecords<T extends Member$borrowRecordsArgs<ExtArgs> = {}>(args?: Subset<T, Member$borrowRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Member model
+   */
+  interface MemberFieldRefs {
+    readonly memberId: FieldRef<"Member", 'String'>
+    readonly name: FieldRef<"Member", 'String'>
+    readonly email: FieldRef<"Member", 'String'>
+    readonly phone: FieldRef<"Member", 'String'>
+    readonly membershipDate: FieldRef<"Member", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Member findUnique
+   */
+  export type MemberFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * Filter, which Member to fetch.
+     */
+    where: MemberWhereUniqueInput
+  }
+
+  /**
+   * Member findUniqueOrThrow
+   */
+  export type MemberFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * Filter, which Member to fetch.
+     */
+    where: MemberWhereUniqueInput
+  }
+
+  /**
+   * Member findFirst
+   */
+  export type MemberFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * Filter, which Member to fetch.
+     */
+    where?: MemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Members to fetch.
+     */
+    orderBy?: MemberOrderByWithRelationInput | MemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Members.
+     */
+    cursor?: MemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Members from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Members.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Members.
+     */
+    distinct?: MemberScalarFieldEnum | MemberScalarFieldEnum[]
+  }
+
+  /**
+   * Member findFirstOrThrow
+   */
+  export type MemberFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * Filter, which Member to fetch.
+     */
+    where?: MemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Members to fetch.
+     */
+    orderBy?: MemberOrderByWithRelationInput | MemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Members.
+     */
+    cursor?: MemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Members from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Members.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Members.
+     */
+    distinct?: MemberScalarFieldEnum | MemberScalarFieldEnum[]
+  }
+
+  /**
+   * Member findMany
+   */
+  export type MemberFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * Filter, which Members to fetch.
+     */
+    where?: MemberWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Members to fetch.
+     */
+    orderBy?: MemberOrderByWithRelationInput | MemberOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Members.
+     */
+    cursor?: MemberWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Members from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Members.
+     */
+    skip?: number
+    distinct?: MemberScalarFieldEnum | MemberScalarFieldEnum[]
+  }
+
+  /**
+   * Member create
+   */
+  export type MemberCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Member.
+     */
+    data: XOR<MemberCreateInput, MemberUncheckedCreateInput>
+  }
+
+  /**
+   * Member createMany
+   */
+  export type MemberCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Members.
+     */
+    data: MemberCreateManyInput | MemberCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Member createManyAndReturn
+   */
+  export type MemberCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * The data used to create many Members.
+     */
+    data: MemberCreateManyInput | MemberCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Member update
+   */
+  export type MemberUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Member.
+     */
+    data: XOR<MemberUpdateInput, MemberUncheckedUpdateInput>
+    /**
+     * Choose, which Member to update.
+     */
+    where: MemberWhereUniqueInput
+  }
+
+  /**
+   * Member updateMany
+   */
+  export type MemberUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Members.
+     */
+    data: XOR<MemberUpdateManyMutationInput, MemberUncheckedUpdateManyInput>
+    /**
+     * Filter which Members to update
+     */
+    where?: MemberWhereInput
+    /**
+     * Limit how many Members to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Member updateManyAndReturn
+   */
+  export type MemberUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * The data used to update Members.
+     */
+    data: XOR<MemberUpdateManyMutationInput, MemberUncheckedUpdateManyInput>
+    /**
+     * Filter which Members to update
+     */
+    where?: MemberWhereInput
+    /**
+     * Limit how many Members to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Member upsert
+   */
+  export type MemberUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Member to update in case it exists.
+     */
+    where: MemberWhereUniqueInput
+    /**
+     * In case the Member found by the `where` argument doesn't exist, create a new Member with this data.
+     */
+    create: XOR<MemberCreateInput, MemberUncheckedCreateInput>
+    /**
+     * In case the Member was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MemberUpdateInput, MemberUncheckedUpdateInput>
+  }
+
+  /**
+   * Member delete
+   */
+  export type MemberDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+    /**
+     * Filter which Member to delete.
+     */
+    where: MemberWhereUniqueInput
+  }
+
+  /**
+   * Member deleteMany
+   */
+  export type MemberDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Members to delete
+     */
+    where?: MemberWhereInput
+    /**
+     * Limit how many Members to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Member.borrowRecords
+   */
+  export type Member$borrowRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    where?: BorrowRecordWhereInput
+    orderBy?: BorrowRecordOrderByWithRelationInput | BorrowRecordOrderByWithRelationInput[]
+    cursor?: BorrowRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BorrowRecordScalarFieldEnum | BorrowRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Member without action
+   */
+  export type MemberDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Member
+     */
+    select?: MemberSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Member
+     */
+    omit?: MemberOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MemberInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BorrowRecord
+   */
+
+  export type AggregateBorrowRecord = {
+    _count: BorrowRecordCountAggregateOutputType | null
+    _min: BorrowRecordMinAggregateOutputType | null
+    _max: BorrowRecordMaxAggregateOutputType | null
+  }
+
+  export type BorrowRecordMinAggregateOutputType = {
+    borrowId: string | null
+    borrowDate: Date | null
+    returnDate: Date | null
+    bookId: string | null
+    memberId: string | null
+  }
+
+  export type BorrowRecordMaxAggregateOutputType = {
+    borrowId: string | null
+    borrowDate: Date | null
+    returnDate: Date | null
+    bookId: string | null
+    memberId: string | null
+  }
+
+  export type BorrowRecordCountAggregateOutputType = {
+    borrowId: number
+    borrowDate: number
+    returnDate: number
+    bookId: number
+    memberId: number
+    _all: number
+  }
+
+
+  export type BorrowRecordMinAggregateInputType = {
+    borrowId?: true
+    borrowDate?: true
+    returnDate?: true
+    bookId?: true
+    memberId?: true
+  }
+
+  export type BorrowRecordMaxAggregateInputType = {
+    borrowId?: true
+    borrowDate?: true
+    returnDate?: true
+    bookId?: true
+    memberId?: true
+  }
+
+  export type BorrowRecordCountAggregateInputType = {
+    borrowId?: true
+    borrowDate?: true
+    returnDate?: true
+    bookId?: true
+    memberId?: true
+    _all?: true
+  }
+
+  export type BorrowRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BorrowRecord to aggregate.
+     */
+    where?: BorrowRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BorrowRecords to fetch.
+     */
+    orderBy?: BorrowRecordOrderByWithRelationInput | BorrowRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BorrowRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BorrowRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BorrowRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BorrowRecords
+    **/
+    _count?: true | BorrowRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BorrowRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BorrowRecordMaxAggregateInputType
+  }
+
+  export type GetBorrowRecordAggregateType<T extends BorrowRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateBorrowRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBorrowRecord[P]>
+      : GetScalarType<T[P], AggregateBorrowRecord[P]>
+  }
+
+
+
+
+  export type BorrowRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BorrowRecordWhereInput
+    orderBy?: BorrowRecordOrderByWithAggregationInput | BorrowRecordOrderByWithAggregationInput[]
+    by: BorrowRecordScalarFieldEnum[] | BorrowRecordScalarFieldEnum
+    having?: BorrowRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BorrowRecordCountAggregateInputType | true
+    _min?: BorrowRecordMinAggregateInputType
+    _max?: BorrowRecordMaxAggregateInputType
+  }
+
+  export type BorrowRecordGroupByOutputType = {
+    borrowId: string
+    borrowDate: Date
+    returnDate: Date
+    bookId: string
+    memberId: string
+    _count: BorrowRecordCountAggregateOutputType | null
+    _min: BorrowRecordMinAggregateOutputType | null
+    _max: BorrowRecordMaxAggregateOutputType | null
+  }
+
+  type GetBorrowRecordGroupByPayload<T extends BorrowRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BorrowRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BorrowRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BorrowRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], BorrowRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BorrowRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    borrowId?: boolean
+    borrowDate?: boolean
+    returnDate?: boolean
+    bookId?: boolean
+    memberId?: boolean
+    book?: boolean | BookDefaultArgs<ExtArgs>
+    member?: boolean | MemberDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["borrowRecord"]>
+
+  export type BorrowRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    borrowId?: boolean
+    borrowDate?: boolean
+    returnDate?: boolean
+    bookId?: boolean
+    memberId?: boolean
+    book?: boolean | BookDefaultArgs<ExtArgs>
+    member?: boolean | MemberDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["borrowRecord"]>
+
+  export type BorrowRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    borrowId?: boolean
+    borrowDate?: boolean
+    returnDate?: boolean
+    bookId?: boolean
+    memberId?: boolean
+    book?: boolean | BookDefaultArgs<ExtArgs>
+    member?: boolean | MemberDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["borrowRecord"]>
+
+  export type BorrowRecordSelectScalar = {
+    borrowId?: boolean
+    borrowDate?: boolean
+    returnDate?: boolean
+    bookId?: boolean
+    memberId?: boolean
+  }
+
+  export type BorrowRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"borrowId" | "borrowDate" | "returnDate" | "bookId" | "memberId", ExtArgs["result"]["borrowRecord"]>
+  export type BorrowRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    book?: boolean | BookDefaultArgs<ExtArgs>
+    member?: boolean | MemberDefaultArgs<ExtArgs>
+  }
+  export type BorrowRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    book?: boolean | BookDefaultArgs<ExtArgs>
+    member?: boolean | MemberDefaultArgs<ExtArgs>
+  }
+  export type BorrowRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    book?: boolean | BookDefaultArgs<ExtArgs>
+    member?: boolean | MemberDefaultArgs<ExtArgs>
+  }
+
+  export type $BorrowRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BorrowRecord"
+    objects: {
+      book: Prisma.$BookPayload<ExtArgs>
+      member: Prisma.$MemberPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      borrowId: string
+      borrowDate: Date
+      returnDate: Date
+      bookId: string
+      memberId: string
+    }, ExtArgs["result"]["borrowRecord"]>
+    composites: {}
+  }
+
+  type BorrowRecordGetPayload<S extends boolean | null | undefined | BorrowRecordDefaultArgs> = $Result.GetResult<Prisma.$BorrowRecordPayload, S>
+
+  type BorrowRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BorrowRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BorrowRecordCountAggregateInputType | true
+    }
+
+  export interface BorrowRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BorrowRecord'], meta: { name: 'BorrowRecord' } }
+    /**
+     * Find zero or one BorrowRecord that matches the filter.
+     * @param {BorrowRecordFindUniqueArgs} args - Arguments to find a BorrowRecord
+     * @example
+     * // Get one BorrowRecord
+     * const borrowRecord = await prisma.borrowRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BorrowRecordFindUniqueArgs>(args: SelectSubset<T, BorrowRecordFindUniqueArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BorrowRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BorrowRecordFindUniqueOrThrowArgs} args - Arguments to find a BorrowRecord
+     * @example
+     * // Get one BorrowRecord
+     * const borrowRecord = await prisma.borrowRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BorrowRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, BorrowRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BorrowRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BorrowRecordFindFirstArgs} args - Arguments to find a BorrowRecord
+     * @example
+     * // Get one BorrowRecord
+     * const borrowRecord = await prisma.borrowRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BorrowRecordFindFirstArgs>(args?: SelectSubset<T, BorrowRecordFindFirstArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BorrowRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BorrowRecordFindFirstOrThrowArgs} args - Arguments to find a BorrowRecord
+     * @example
+     * // Get one BorrowRecord
+     * const borrowRecord = await prisma.borrowRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BorrowRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, BorrowRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BorrowRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BorrowRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BorrowRecords
+     * const borrowRecords = await prisma.borrowRecord.findMany()
+     * 
+     * // Get first 10 BorrowRecords
+     * const borrowRecords = await prisma.borrowRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `borrowId`
+     * const borrowRecordWithBorrowIdOnly = await prisma.borrowRecord.findMany({ select: { borrowId: true } })
+     * 
+     */
+    findMany<T extends BorrowRecordFindManyArgs>(args?: SelectSubset<T, BorrowRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BorrowRecord.
+     * @param {BorrowRecordCreateArgs} args - Arguments to create a BorrowRecord.
+     * @example
+     * // Create one BorrowRecord
+     * const BorrowRecord = await prisma.borrowRecord.create({
+     *   data: {
+     *     // ... data to create a BorrowRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends BorrowRecordCreateArgs>(args: SelectSubset<T, BorrowRecordCreateArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BorrowRecords.
+     * @param {BorrowRecordCreateManyArgs} args - Arguments to create many BorrowRecords.
+     * @example
+     * // Create many BorrowRecords
+     * const borrowRecord = await prisma.borrowRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BorrowRecordCreateManyArgs>(args?: SelectSubset<T, BorrowRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BorrowRecords and returns the data saved in the database.
+     * @param {BorrowRecordCreateManyAndReturnArgs} args - Arguments to create many BorrowRecords.
+     * @example
+     * // Create many BorrowRecords
+     * const borrowRecord = await prisma.borrowRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BorrowRecords and only return the `borrowId`
+     * const borrowRecordWithBorrowIdOnly = await prisma.borrowRecord.createManyAndReturn({
+     *   select: { borrowId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BorrowRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, BorrowRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BorrowRecord.
+     * @param {BorrowRecordDeleteArgs} args - Arguments to delete one BorrowRecord.
+     * @example
+     * // Delete one BorrowRecord
+     * const BorrowRecord = await prisma.borrowRecord.delete({
+     *   where: {
+     *     // ... filter to delete one BorrowRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BorrowRecordDeleteArgs>(args: SelectSubset<T, BorrowRecordDeleteArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BorrowRecord.
+     * @param {BorrowRecordUpdateArgs} args - Arguments to update one BorrowRecord.
+     * @example
+     * // Update one BorrowRecord
+     * const borrowRecord = await prisma.borrowRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BorrowRecordUpdateArgs>(args: SelectSubset<T, BorrowRecordUpdateArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BorrowRecords.
+     * @param {BorrowRecordDeleteManyArgs} args - Arguments to filter BorrowRecords to delete.
+     * @example
+     * // Delete a few BorrowRecords
+     * const { count } = await prisma.borrowRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BorrowRecordDeleteManyArgs>(args?: SelectSubset<T, BorrowRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BorrowRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BorrowRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BorrowRecords
+     * const borrowRecord = await prisma.borrowRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BorrowRecordUpdateManyArgs>(args: SelectSubset<T, BorrowRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BorrowRecords and returns the data updated in the database.
+     * @param {BorrowRecordUpdateManyAndReturnArgs} args - Arguments to update many BorrowRecords.
+     * @example
+     * // Update many BorrowRecords
+     * const borrowRecord = await prisma.borrowRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BorrowRecords and only return the `borrowId`
+     * const borrowRecordWithBorrowIdOnly = await prisma.borrowRecord.updateManyAndReturn({
+     *   select: { borrowId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BorrowRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, BorrowRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BorrowRecord.
+     * @param {BorrowRecordUpsertArgs} args - Arguments to update or create a BorrowRecord.
+     * @example
+     * // Update or create a BorrowRecord
+     * const borrowRecord = await prisma.borrowRecord.upsert({
+     *   create: {
+     *     // ... data to create a BorrowRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BorrowRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BorrowRecordUpsertArgs>(args: SelectSubset<T, BorrowRecordUpsertArgs<ExtArgs>>): Prisma__BorrowRecordClient<$Result.GetResult<Prisma.$BorrowRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BorrowRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BorrowRecordCountArgs} args - Arguments to filter BorrowRecords to count.
+     * @example
+     * // Count the number of BorrowRecords
+     * const count = await prisma.borrowRecord.count({
+     *   where: {
+     *     // ... the filter for the BorrowRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends BorrowRecordCountArgs>(
+      args?: Subset<T, BorrowRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BorrowRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BorrowRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BorrowRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BorrowRecordAggregateArgs>(args: Subset<T, BorrowRecordAggregateArgs>): Prisma.PrismaPromise<GetBorrowRecordAggregateType<T>>
+
+    /**
+     * Group by BorrowRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BorrowRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BorrowRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BorrowRecordGroupByArgs['orderBy'] }
+        : { orderBy?: BorrowRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BorrowRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBorrowRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BorrowRecord model
+   */
+  readonly fields: BorrowRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BorrowRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BorrowRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    book<T extends BookDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BookDefaultArgs<ExtArgs>>): Prisma__BookClient<$Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    member<T extends MemberDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MemberDefaultArgs<ExtArgs>>): Prisma__MemberClient<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BorrowRecord model
+   */
+  interface BorrowRecordFieldRefs {
+    readonly borrowId: FieldRef<"BorrowRecord", 'String'>
+    readonly borrowDate: FieldRef<"BorrowRecord", 'DateTime'>
+    readonly returnDate: FieldRef<"BorrowRecord", 'DateTime'>
+    readonly bookId: FieldRef<"BorrowRecord", 'String'>
+    readonly memberId: FieldRef<"BorrowRecord", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BorrowRecord findUnique
+   */
+  export type BorrowRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BorrowRecord to fetch.
+     */
+    where: BorrowRecordWhereUniqueInput
+  }
+
+  /**
+   * BorrowRecord findUniqueOrThrow
+   */
+  export type BorrowRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BorrowRecord to fetch.
+     */
+    where: BorrowRecordWhereUniqueInput
+  }
+
+  /**
+   * BorrowRecord findFirst
+   */
+  export type BorrowRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BorrowRecord to fetch.
+     */
+    where?: BorrowRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BorrowRecords to fetch.
+     */
+    orderBy?: BorrowRecordOrderByWithRelationInput | BorrowRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BorrowRecords.
+     */
+    cursor?: BorrowRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BorrowRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BorrowRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BorrowRecords.
+     */
+    distinct?: BorrowRecordScalarFieldEnum | BorrowRecordScalarFieldEnum[]
+  }
+
+  /**
+   * BorrowRecord findFirstOrThrow
+   */
+  export type BorrowRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BorrowRecord to fetch.
+     */
+    where?: BorrowRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BorrowRecords to fetch.
+     */
+    orderBy?: BorrowRecordOrderByWithRelationInput | BorrowRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BorrowRecords.
+     */
+    cursor?: BorrowRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BorrowRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BorrowRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BorrowRecords.
+     */
+    distinct?: BorrowRecordScalarFieldEnum | BorrowRecordScalarFieldEnum[]
+  }
+
+  /**
+   * BorrowRecord findMany
+   */
+  export type BorrowRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which BorrowRecords to fetch.
+     */
+    where?: BorrowRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BorrowRecords to fetch.
+     */
+    orderBy?: BorrowRecordOrderByWithRelationInput | BorrowRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BorrowRecords.
+     */
+    cursor?: BorrowRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BorrowRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BorrowRecords.
+     */
+    skip?: number
+    distinct?: BorrowRecordScalarFieldEnum | BorrowRecordScalarFieldEnum[]
+  }
+
+  /**
+   * BorrowRecord create
+   */
+  export type BorrowRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BorrowRecord.
+     */
+    data: XOR<BorrowRecordCreateInput, BorrowRecordUncheckedCreateInput>
+  }
+
+  /**
+   * BorrowRecord createMany
+   */
+  export type BorrowRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BorrowRecords.
+     */
+    data: BorrowRecordCreateManyInput | BorrowRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BorrowRecord createManyAndReturn
+   */
+  export type BorrowRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many BorrowRecords.
+     */
+    data: BorrowRecordCreateManyInput | BorrowRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BorrowRecord update
+   */
+  export type BorrowRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BorrowRecord.
+     */
+    data: XOR<BorrowRecordUpdateInput, BorrowRecordUncheckedUpdateInput>
+    /**
+     * Choose, which BorrowRecord to update.
+     */
+    where: BorrowRecordWhereUniqueInput
+  }
+
+  /**
+   * BorrowRecord updateMany
+   */
+  export type BorrowRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BorrowRecords.
+     */
+    data: XOR<BorrowRecordUpdateManyMutationInput, BorrowRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which BorrowRecords to update
+     */
+    where?: BorrowRecordWhereInput
+    /**
+     * Limit how many BorrowRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BorrowRecord updateManyAndReturn
+   */
+  export type BorrowRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update BorrowRecords.
+     */
+    data: XOR<BorrowRecordUpdateManyMutationInput, BorrowRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which BorrowRecords to update
+     */
+    where?: BorrowRecordWhereInput
+    /**
+     * Limit how many BorrowRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BorrowRecord upsert
+   */
+  export type BorrowRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BorrowRecord to update in case it exists.
+     */
+    where: BorrowRecordWhereUniqueInput
+    /**
+     * In case the BorrowRecord found by the `where` argument doesn't exist, create a new BorrowRecord with this data.
+     */
+    create: XOR<BorrowRecordCreateInput, BorrowRecordUncheckedCreateInput>
+    /**
+     * In case the BorrowRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BorrowRecordUpdateInput, BorrowRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * BorrowRecord delete
+   */
+  export type BorrowRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+    /**
+     * Filter which BorrowRecord to delete.
+     */
+    where: BorrowRecordWhereUniqueInput
+  }
+
+  /**
+   * BorrowRecord deleteMany
+   */
+  export type BorrowRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BorrowRecords to delete
+     */
+    where?: BorrowRecordWhereInput
+    /**
+     * Limit how many BorrowRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BorrowRecord without action
+   */
+  export type BorrowRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BorrowRecord
+     */
+    select?: BorrowRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BorrowRecord
+     */
+    omit?: BorrowRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BorrowRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3230,6 +6825,40 @@ export namespace Prisma {
   };
 
   export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
+
+
+  export const BookScalarFieldEnum: {
+    bookId: 'bookId',
+    title: 'title',
+    genre: 'genre',
+    publishedYear: 'publishedYear',
+    totalCopies: 'totalCopies',
+    availableCopies: 'availableCopies'
+  };
+
+  export type BookScalarFieldEnum = (typeof BookScalarFieldEnum)[keyof typeof BookScalarFieldEnum]
+
+
+  export const MemberScalarFieldEnum: {
+    memberId: 'memberId',
+    name: 'name',
+    email: 'email',
+    phone: 'phone',
+    membershipDate: 'membershipDate'
+  };
+
+  export type MemberScalarFieldEnum = (typeof MemberScalarFieldEnum)[keyof typeof MemberScalarFieldEnum]
+
+
+  export const BorrowRecordScalarFieldEnum: {
+    borrowId: 'borrowId',
+    borrowDate: 'borrowDate',
+    returnDate: 'returnDate',
+    bookId: 'bookId',
+    memberId: 'memberId'
+  };
+
+  export type BorrowRecordScalarFieldEnum = (typeof BorrowRecordScalarFieldEnum)[keyof typeof BorrowRecordScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3335,6 +6964,20 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -3479,6 +7122,181 @@ export namespace Prisma {
     isDeleted?: BoolWithAggregatesFilter<"Admin"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
+  }
+
+  export type BookWhereInput = {
+    AND?: BookWhereInput | BookWhereInput[]
+    OR?: BookWhereInput[]
+    NOT?: BookWhereInput | BookWhereInput[]
+    bookId?: StringFilter<"Book"> | string
+    title?: StringFilter<"Book"> | string
+    genre?: StringFilter<"Book"> | string
+    publishedYear?: IntFilter<"Book"> | number
+    totalCopies?: IntFilter<"Book"> | number
+    availableCopies?: IntFilter<"Book"> | number
+    borrowRecords?: BorrowRecordListRelationFilter
+  }
+
+  export type BookOrderByWithRelationInput = {
+    bookId?: SortOrder
+    title?: SortOrder
+    genre?: SortOrder
+    publishedYear?: SortOrder
+    totalCopies?: SortOrder
+    availableCopies?: SortOrder
+    borrowRecords?: BorrowRecordOrderByRelationAggregateInput
+  }
+
+  export type BookWhereUniqueInput = Prisma.AtLeast<{
+    bookId?: string
+    AND?: BookWhereInput | BookWhereInput[]
+    OR?: BookWhereInput[]
+    NOT?: BookWhereInput | BookWhereInput[]
+    title?: StringFilter<"Book"> | string
+    genre?: StringFilter<"Book"> | string
+    publishedYear?: IntFilter<"Book"> | number
+    totalCopies?: IntFilter<"Book"> | number
+    availableCopies?: IntFilter<"Book"> | number
+    borrowRecords?: BorrowRecordListRelationFilter
+  }, "bookId">
+
+  export type BookOrderByWithAggregationInput = {
+    bookId?: SortOrder
+    title?: SortOrder
+    genre?: SortOrder
+    publishedYear?: SortOrder
+    totalCopies?: SortOrder
+    availableCopies?: SortOrder
+    _count?: BookCountOrderByAggregateInput
+    _avg?: BookAvgOrderByAggregateInput
+    _max?: BookMaxOrderByAggregateInput
+    _min?: BookMinOrderByAggregateInput
+    _sum?: BookSumOrderByAggregateInput
+  }
+
+  export type BookScalarWhereWithAggregatesInput = {
+    AND?: BookScalarWhereWithAggregatesInput | BookScalarWhereWithAggregatesInput[]
+    OR?: BookScalarWhereWithAggregatesInput[]
+    NOT?: BookScalarWhereWithAggregatesInput | BookScalarWhereWithAggregatesInput[]
+    bookId?: StringWithAggregatesFilter<"Book"> | string
+    title?: StringWithAggregatesFilter<"Book"> | string
+    genre?: StringWithAggregatesFilter<"Book"> | string
+    publishedYear?: IntWithAggregatesFilter<"Book"> | number
+    totalCopies?: IntWithAggregatesFilter<"Book"> | number
+    availableCopies?: IntWithAggregatesFilter<"Book"> | number
+  }
+
+  export type MemberWhereInput = {
+    AND?: MemberWhereInput | MemberWhereInput[]
+    OR?: MemberWhereInput[]
+    NOT?: MemberWhereInput | MemberWhereInput[]
+    memberId?: StringFilter<"Member"> | string
+    name?: StringFilter<"Member"> | string
+    email?: StringFilter<"Member"> | string
+    phone?: StringFilter<"Member"> | string
+    membershipDate?: DateTimeFilter<"Member"> | Date | string
+    borrowRecords?: BorrowRecordListRelationFilter
+  }
+
+  export type MemberOrderByWithRelationInput = {
+    memberId?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    membershipDate?: SortOrder
+    borrowRecords?: BorrowRecordOrderByRelationAggregateInput
+  }
+
+  export type MemberWhereUniqueInput = Prisma.AtLeast<{
+    memberId?: string
+    email?: string
+    AND?: MemberWhereInput | MemberWhereInput[]
+    OR?: MemberWhereInput[]
+    NOT?: MemberWhereInput | MemberWhereInput[]
+    name?: StringFilter<"Member"> | string
+    phone?: StringFilter<"Member"> | string
+    membershipDate?: DateTimeFilter<"Member"> | Date | string
+    borrowRecords?: BorrowRecordListRelationFilter
+  }, "memberId" | "email">
+
+  export type MemberOrderByWithAggregationInput = {
+    memberId?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    membershipDate?: SortOrder
+    _count?: MemberCountOrderByAggregateInput
+    _max?: MemberMaxOrderByAggregateInput
+    _min?: MemberMinOrderByAggregateInput
+  }
+
+  export type MemberScalarWhereWithAggregatesInput = {
+    AND?: MemberScalarWhereWithAggregatesInput | MemberScalarWhereWithAggregatesInput[]
+    OR?: MemberScalarWhereWithAggregatesInput[]
+    NOT?: MemberScalarWhereWithAggregatesInput | MemberScalarWhereWithAggregatesInput[]
+    memberId?: StringWithAggregatesFilter<"Member"> | string
+    name?: StringWithAggregatesFilter<"Member"> | string
+    email?: StringWithAggregatesFilter<"Member"> | string
+    phone?: StringWithAggregatesFilter<"Member"> | string
+    membershipDate?: DateTimeWithAggregatesFilter<"Member"> | Date | string
+  }
+
+  export type BorrowRecordWhereInput = {
+    AND?: BorrowRecordWhereInput | BorrowRecordWhereInput[]
+    OR?: BorrowRecordWhereInput[]
+    NOT?: BorrowRecordWhereInput | BorrowRecordWhereInput[]
+    borrowId?: StringFilter<"BorrowRecord"> | string
+    borrowDate?: DateTimeFilter<"BorrowRecord"> | Date | string
+    returnDate?: DateTimeFilter<"BorrowRecord"> | Date | string
+    bookId?: StringFilter<"BorrowRecord"> | string
+    memberId?: StringFilter<"BorrowRecord"> | string
+    book?: XOR<BookScalarRelationFilter, BookWhereInput>
+    member?: XOR<MemberScalarRelationFilter, MemberWhereInput>
+  }
+
+  export type BorrowRecordOrderByWithRelationInput = {
+    borrowId?: SortOrder
+    borrowDate?: SortOrder
+    returnDate?: SortOrder
+    bookId?: SortOrder
+    memberId?: SortOrder
+    book?: BookOrderByWithRelationInput
+    member?: MemberOrderByWithRelationInput
+  }
+
+  export type BorrowRecordWhereUniqueInput = Prisma.AtLeast<{
+    borrowId?: string
+    AND?: BorrowRecordWhereInput | BorrowRecordWhereInput[]
+    OR?: BorrowRecordWhereInput[]
+    NOT?: BorrowRecordWhereInput | BorrowRecordWhereInput[]
+    borrowDate?: DateTimeFilter<"BorrowRecord"> | Date | string
+    returnDate?: DateTimeFilter<"BorrowRecord"> | Date | string
+    bookId?: StringFilter<"BorrowRecord"> | string
+    memberId?: StringFilter<"BorrowRecord"> | string
+    book?: XOR<BookScalarRelationFilter, BookWhereInput>
+    member?: XOR<MemberScalarRelationFilter, MemberWhereInput>
+  }, "borrowId">
+
+  export type BorrowRecordOrderByWithAggregationInput = {
+    borrowId?: SortOrder
+    borrowDate?: SortOrder
+    returnDate?: SortOrder
+    bookId?: SortOrder
+    memberId?: SortOrder
+    _count?: BorrowRecordCountOrderByAggregateInput
+    _max?: BorrowRecordMaxOrderByAggregateInput
+    _min?: BorrowRecordMinOrderByAggregateInput
+  }
+
+  export type BorrowRecordScalarWhereWithAggregatesInput = {
+    AND?: BorrowRecordScalarWhereWithAggregatesInput | BorrowRecordScalarWhereWithAggregatesInput[]
+    OR?: BorrowRecordScalarWhereWithAggregatesInput[]
+    NOT?: BorrowRecordScalarWhereWithAggregatesInput | BorrowRecordScalarWhereWithAggregatesInput[]
+    borrowId?: StringWithAggregatesFilter<"BorrowRecord"> | string
+    borrowDate?: DateTimeWithAggregatesFilter<"BorrowRecord"> | Date | string
+    returnDate?: DateTimeWithAggregatesFilter<"BorrowRecord"> | Date | string
+    bookId?: StringWithAggregatesFilter<"BorrowRecord"> | string
+    memberId?: StringWithAggregatesFilter<"BorrowRecord"> | string
   }
 
   export type UserCreateInput = {
@@ -3636,6 +7454,187 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookCreateInput = {
+    bookId?: string
+    title: string
+    genre: string
+    publishedYear: number
+    totalCopies: number
+    availableCopies: number
+    borrowRecords?: BorrowRecordCreateNestedManyWithoutBookInput
+  }
+
+  export type BookUncheckedCreateInput = {
+    bookId?: string
+    title: string
+    genre: string
+    publishedYear: number
+    totalCopies: number
+    availableCopies: number
+    borrowRecords?: BorrowRecordUncheckedCreateNestedManyWithoutBookInput
+  }
+
+  export type BookUpdateInput = {
+    bookId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: StringFieldUpdateOperationsInput | string
+    publishedYear?: IntFieldUpdateOperationsInput | number
+    totalCopies?: IntFieldUpdateOperationsInput | number
+    availableCopies?: IntFieldUpdateOperationsInput | number
+    borrowRecords?: BorrowRecordUpdateManyWithoutBookNestedInput
+  }
+
+  export type BookUncheckedUpdateInput = {
+    bookId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: StringFieldUpdateOperationsInput | string
+    publishedYear?: IntFieldUpdateOperationsInput | number
+    totalCopies?: IntFieldUpdateOperationsInput | number
+    availableCopies?: IntFieldUpdateOperationsInput | number
+    borrowRecords?: BorrowRecordUncheckedUpdateManyWithoutBookNestedInput
+  }
+
+  export type BookCreateManyInput = {
+    bookId?: string
+    title: string
+    genre: string
+    publishedYear: number
+    totalCopies: number
+    availableCopies: number
+  }
+
+  export type BookUpdateManyMutationInput = {
+    bookId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: StringFieldUpdateOperationsInput | string
+    publishedYear?: IntFieldUpdateOperationsInput | number
+    totalCopies?: IntFieldUpdateOperationsInput | number
+    availableCopies?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BookUncheckedUpdateManyInput = {
+    bookId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: StringFieldUpdateOperationsInput | string
+    publishedYear?: IntFieldUpdateOperationsInput | number
+    totalCopies?: IntFieldUpdateOperationsInput | number
+    availableCopies?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type MemberCreateInput = {
+    memberId?: string
+    name: string
+    email: string
+    phone: string
+    membershipDate?: Date | string
+    borrowRecords?: BorrowRecordCreateNestedManyWithoutMemberInput
+  }
+
+  export type MemberUncheckedCreateInput = {
+    memberId?: string
+    name: string
+    email: string
+    phone: string
+    membershipDate?: Date | string
+    borrowRecords?: BorrowRecordUncheckedCreateNestedManyWithoutMemberInput
+  }
+
+  export type MemberUpdateInput = {
+    memberId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    borrowRecords?: BorrowRecordUpdateManyWithoutMemberNestedInput
+  }
+
+  export type MemberUncheckedUpdateInput = {
+    memberId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    borrowRecords?: BorrowRecordUncheckedUpdateManyWithoutMemberNestedInput
+  }
+
+  export type MemberCreateManyInput = {
+    memberId?: string
+    name: string
+    email: string
+    phone: string
+    membershipDate?: Date | string
+  }
+
+  export type MemberUpdateManyMutationInput = {
+    memberId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MemberUncheckedUpdateManyInput = {
+    memberId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BorrowRecordCreateInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    book: BookCreateNestedOneWithoutBorrowRecordsInput
+    member: MemberCreateNestedOneWithoutBorrowRecordsInput
+  }
+
+  export type BorrowRecordUncheckedCreateInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    bookId: string
+    memberId: string
+  }
+
+  export type BorrowRecordUpdateInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    book?: BookUpdateOneRequiredWithoutBorrowRecordsNestedInput
+    member?: MemberUpdateOneRequiredWithoutBorrowRecordsNestedInput
+  }
+
+  export type BorrowRecordUncheckedUpdateInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    bookId?: StringFieldUpdateOperationsInput | string
+    memberId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BorrowRecordCreateManyInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    bookId: string
+    memberId: string
+  }
+
+  export type BorrowRecordUpdateManyMutationInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BorrowRecordUncheckedUpdateManyInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    bookId?: StringFieldUpdateOperationsInput | string
+    memberId?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3857,6 +7856,140 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type BorrowRecordListRelationFilter = {
+    every?: BorrowRecordWhereInput
+    some?: BorrowRecordWhereInput
+    none?: BorrowRecordWhereInput
+  }
+
+  export type BorrowRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BookCountOrderByAggregateInput = {
+    bookId?: SortOrder
+    title?: SortOrder
+    genre?: SortOrder
+    publishedYear?: SortOrder
+    totalCopies?: SortOrder
+    availableCopies?: SortOrder
+  }
+
+  export type BookAvgOrderByAggregateInput = {
+    publishedYear?: SortOrder
+    totalCopies?: SortOrder
+    availableCopies?: SortOrder
+  }
+
+  export type BookMaxOrderByAggregateInput = {
+    bookId?: SortOrder
+    title?: SortOrder
+    genre?: SortOrder
+    publishedYear?: SortOrder
+    totalCopies?: SortOrder
+    availableCopies?: SortOrder
+  }
+
+  export type BookMinOrderByAggregateInput = {
+    bookId?: SortOrder
+    title?: SortOrder
+    genre?: SortOrder
+    publishedYear?: SortOrder
+    totalCopies?: SortOrder
+    availableCopies?: SortOrder
+  }
+
+  export type BookSumOrderByAggregateInput = {
+    publishedYear?: SortOrder
+    totalCopies?: SortOrder
+    availableCopies?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type MemberCountOrderByAggregateInput = {
+    memberId?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    membershipDate?: SortOrder
+  }
+
+  export type MemberMaxOrderByAggregateInput = {
+    memberId?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    membershipDate?: SortOrder
+  }
+
+  export type MemberMinOrderByAggregateInput = {
+    memberId?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    membershipDate?: SortOrder
+  }
+
+  export type BookScalarRelationFilter = {
+    is?: BookWhereInput
+    isNot?: BookWhereInput
+  }
+
+  export type MemberScalarRelationFilter = {
+    is?: MemberWhereInput
+    isNot?: MemberWhereInput
+  }
+
+  export type BorrowRecordCountOrderByAggregateInput = {
+    borrowId?: SortOrder
+    borrowDate?: SortOrder
+    returnDate?: SortOrder
+    bookId?: SortOrder
+    memberId?: SortOrder
+  }
+
+  export type BorrowRecordMaxOrderByAggregateInput = {
+    borrowId?: SortOrder
+    borrowDate?: SortOrder
+    returnDate?: SortOrder
+    bookId?: SortOrder
+    memberId?: SortOrder
+  }
+
+  export type BorrowRecordMinOrderByAggregateInput = {
+    borrowId?: SortOrder
+    borrowDate?: SortOrder
+    returnDate?: SortOrder
+    bookId?: SortOrder
+    memberId?: SortOrder
+  }
+
   export type AdminCreateNestedOneWithoutUserInput = {
     create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
     connectOrCreate?: AdminCreateOrConnectWithoutUserInput
@@ -3925,6 +8058,126 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutAdminInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAdminInput, UserUpdateWithoutAdminInput>, UserUncheckedUpdateWithoutAdminInput>
+  }
+
+  export type BorrowRecordCreateNestedManyWithoutBookInput = {
+    create?: XOR<BorrowRecordCreateWithoutBookInput, BorrowRecordUncheckedCreateWithoutBookInput> | BorrowRecordCreateWithoutBookInput[] | BorrowRecordUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutBookInput | BorrowRecordCreateOrConnectWithoutBookInput[]
+    createMany?: BorrowRecordCreateManyBookInputEnvelope
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+  }
+
+  export type BorrowRecordUncheckedCreateNestedManyWithoutBookInput = {
+    create?: XOR<BorrowRecordCreateWithoutBookInput, BorrowRecordUncheckedCreateWithoutBookInput> | BorrowRecordCreateWithoutBookInput[] | BorrowRecordUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutBookInput | BorrowRecordCreateOrConnectWithoutBookInput[]
+    createMany?: BorrowRecordCreateManyBookInputEnvelope
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type BorrowRecordUpdateManyWithoutBookNestedInput = {
+    create?: XOR<BorrowRecordCreateWithoutBookInput, BorrowRecordUncheckedCreateWithoutBookInput> | BorrowRecordCreateWithoutBookInput[] | BorrowRecordUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutBookInput | BorrowRecordCreateOrConnectWithoutBookInput[]
+    upsert?: BorrowRecordUpsertWithWhereUniqueWithoutBookInput | BorrowRecordUpsertWithWhereUniqueWithoutBookInput[]
+    createMany?: BorrowRecordCreateManyBookInputEnvelope
+    set?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    disconnect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    delete?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    update?: BorrowRecordUpdateWithWhereUniqueWithoutBookInput | BorrowRecordUpdateWithWhereUniqueWithoutBookInput[]
+    updateMany?: BorrowRecordUpdateManyWithWhereWithoutBookInput | BorrowRecordUpdateManyWithWhereWithoutBookInput[]
+    deleteMany?: BorrowRecordScalarWhereInput | BorrowRecordScalarWhereInput[]
+  }
+
+  export type BorrowRecordUncheckedUpdateManyWithoutBookNestedInput = {
+    create?: XOR<BorrowRecordCreateWithoutBookInput, BorrowRecordUncheckedCreateWithoutBookInput> | BorrowRecordCreateWithoutBookInput[] | BorrowRecordUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutBookInput | BorrowRecordCreateOrConnectWithoutBookInput[]
+    upsert?: BorrowRecordUpsertWithWhereUniqueWithoutBookInput | BorrowRecordUpsertWithWhereUniqueWithoutBookInput[]
+    createMany?: BorrowRecordCreateManyBookInputEnvelope
+    set?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    disconnect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    delete?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    update?: BorrowRecordUpdateWithWhereUniqueWithoutBookInput | BorrowRecordUpdateWithWhereUniqueWithoutBookInput[]
+    updateMany?: BorrowRecordUpdateManyWithWhereWithoutBookInput | BorrowRecordUpdateManyWithWhereWithoutBookInput[]
+    deleteMany?: BorrowRecordScalarWhereInput | BorrowRecordScalarWhereInput[]
+  }
+
+  export type BorrowRecordCreateNestedManyWithoutMemberInput = {
+    create?: XOR<BorrowRecordCreateWithoutMemberInput, BorrowRecordUncheckedCreateWithoutMemberInput> | BorrowRecordCreateWithoutMemberInput[] | BorrowRecordUncheckedCreateWithoutMemberInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutMemberInput | BorrowRecordCreateOrConnectWithoutMemberInput[]
+    createMany?: BorrowRecordCreateManyMemberInputEnvelope
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+  }
+
+  export type BorrowRecordUncheckedCreateNestedManyWithoutMemberInput = {
+    create?: XOR<BorrowRecordCreateWithoutMemberInput, BorrowRecordUncheckedCreateWithoutMemberInput> | BorrowRecordCreateWithoutMemberInput[] | BorrowRecordUncheckedCreateWithoutMemberInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutMemberInput | BorrowRecordCreateOrConnectWithoutMemberInput[]
+    createMany?: BorrowRecordCreateManyMemberInputEnvelope
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+  }
+
+  export type BorrowRecordUpdateManyWithoutMemberNestedInput = {
+    create?: XOR<BorrowRecordCreateWithoutMemberInput, BorrowRecordUncheckedCreateWithoutMemberInput> | BorrowRecordCreateWithoutMemberInput[] | BorrowRecordUncheckedCreateWithoutMemberInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutMemberInput | BorrowRecordCreateOrConnectWithoutMemberInput[]
+    upsert?: BorrowRecordUpsertWithWhereUniqueWithoutMemberInput | BorrowRecordUpsertWithWhereUniqueWithoutMemberInput[]
+    createMany?: BorrowRecordCreateManyMemberInputEnvelope
+    set?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    disconnect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    delete?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    update?: BorrowRecordUpdateWithWhereUniqueWithoutMemberInput | BorrowRecordUpdateWithWhereUniqueWithoutMemberInput[]
+    updateMany?: BorrowRecordUpdateManyWithWhereWithoutMemberInput | BorrowRecordUpdateManyWithWhereWithoutMemberInput[]
+    deleteMany?: BorrowRecordScalarWhereInput | BorrowRecordScalarWhereInput[]
+  }
+
+  export type BorrowRecordUncheckedUpdateManyWithoutMemberNestedInput = {
+    create?: XOR<BorrowRecordCreateWithoutMemberInput, BorrowRecordUncheckedCreateWithoutMemberInput> | BorrowRecordCreateWithoutMemberInput[] | BorrowRecordUncheckedCreateWithoutMemberInput[]
+    connectOrCreate?: BorrowRecordCreateOrConnectWithoutMemberInput | BorrowRecordCreateOrConnectWithoutMemberInput[]
+    upsert?: BorrowRecordUpsertWithWhereUniqueWithoutMemberInput | BorrowRecordUpsertWithWhereUniqueWithoutMemberInput[]
+    createMany?: BorrowRecordCreateManyMemberInputEnvelope
+    set?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    disconnect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    delete?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    connect?: BorrowRecordWhereUniqueInput | BorrowRecordWhereUniqueInput[]
+    update?: BorrowRecordUpdateWithWhereUniqueWithoutMemberInput | BorrowRecordUpdateWithWhereUniqueWithoutMemberInput[]
+    updateMany?: BorrowRecordUpdateManyWithWhereWithoutMemberInput | BorrowRecordUpdateManyWithWhereWithoutMemberInput[]
+    deleteMany?: BorrowRecordScalarWhereInput | BorrowRecordScalarWhereInput[]
+  }
+
+  export type BookCreateNestedOneWithoutBorrowRecordsInput = {
+    create?: XOR<BookCreateWithoutBorrowRecordsInput, BookUncheckedCreateWithoutBorrowRecordsInput>
+    connectOrCreate?: BookCreateOrConnectWithoutBorrowRecordsInput
+    connect?: BookWhereUniqueInput
+  }
+
+  export type MemberCreateNestedOneWithoutBorrowRecordsInput = {
+    create?: XOR<MemberCreateWithoutBorrowRecordsInput, MemberUncheckedCreateWithoutBorrowRecordsInput>
+    connectOrCreate?: MemberCreateOrConnectWithoutBorrowRecordsInput
+    connect?: MemberWhereUniqueInput
+  }
+
+  export type BookUpdateOneRequiredWithoutBorrowRecordsNestedInput = {
+    create?: XOR<BookCreateWithoutBorrowRecordsInput, BookUncheckedCreateWithoutBorrowRecordsInput>
+    connectOrCreate?: BookCreateOrConnectWithoutBorrowRecordsInput
+    upsert?: BookUpsertWithoutBorrowRecordsInput
+    connect?: BookWhereUniqueInput
+    update?: XOR<XOR<BookUpdateToOneWithWhereWithoutBorrowRecordsInput, BookUpdateWithoutBorrowRecordsInput>, BookUncheckedUpdateWithoutBorrowRecordsInput>
+  }
+
+  export type MemberUpdateOneRequiredWithoutBorrowRecordsNestedInput = {
+    create?: XOR<MemberCreateWithoutBorrowRecordsInput, MemberUncheckedCreateWithoutBorrowRecordsInput>
+    connectOrCreate?: MemberCreateOrConnectWithoutBorrowRecordsInput
+    upsert?: MemberUpsertWithoutBorrowRecordsInput
+    connect?: MemberWhereUniqueInput
+    update?: XOR<XOR<MemberUpdateToOneWithWhereWithoutBorrowRecordsInput, MemberUpdateWithoutBorrowRecordsInput>, MemberUncheckedUpdateWithoutBorrowRecordsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4083,6 +8336,33 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type AdminCreateWithoutUserInput = {
     id?: string
     name: string
@@ -4197,6 +8477,253 @@ export namespace Prisma {
     status?: EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BorrowRecordCreateWithoutBookInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    member: MemberCreateNestedOneWithoutBorrowRecordsInput
+  }
+
+  export type BorrowRecordUncheckedCreateWithoutBookInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    memberId: string
+  }
+
+  export type BorrowRecordCreateOrConnectWithoutBookInput = {
+    where: BorrowRecordWhereUniqueInput
+    create: XOR<BorrowRecordCreateWithoutBookInput, BorrowRecordUncheckedCreateWithoutBookInput>
+  }
+
+  export type BorrowRecordCreateManyBookInputEnvelope = {
+    data: BorrowRecordCreateManyBookInput | BorrowRecordCreateManyBookInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BorrowRecordUpsertWithWhereUniqueWithoutBookInput = {
+    where: BorrowRecordWhereUniqueInput
+    update: XOR<BorrowRecordUpdateWithoutBookInput, BorrowRecordUncheckedUpdateWithoutBookInput>
+    create: XOR<BorrowRecordCreateWithoutBookInput, BorrowRecordUncheckedCreateWithoutBookInput>
+  }
+
+  export type BorrowRecordUpdateWithWhereUniqueWithoutBookInput = {
+    where: BorrowRecordWhereUniqueInput
+    data: XOR<BorrowRecordUpdateWithoutBookInput, BorrowRecordUncheckedUpdateWithoutBookInput>
+  }
+
+  export type BorrowRecordUpdateManyWithWhereWithoutBookInput = {
+    where: BorrowRecordScalarWhereInput
+    data: XOR<BorrowRecordUpdateManyMutationInput, BorrowRecordUncheckedUpdateManyWithoutBookInput>
+  }
+
+  export type BorrowRecordScalarWhereInput = {
+    AND?: BorrowRecordScalarWhereInput | BorrowRecordScalarWhereInput[]
+    OR?: BorrowRecordScalarWhereInput[]
+    NOT?: BorrowRecordScalarWhereInput | BorrowRecordScalarWhereInput[]
+    borrowId?: StringFilter<"BorrowRecord"> | string
+    borrowDate?: DateTimeFilter<"BorrowRecord"> | Date | string
+    returnDate?: DateTimeFilter<"BorrowRecord"> | Date | string
+    bookId?: StringFilter<"BorrowRecord"> | string
+    memberId?: StringFilter<"BorrowRecord"> | string
+  }
+
+  export type BorrowRecordCreateWithoutMemberInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    book: BookCreateNestedOneWithoutBorrowRecordsInput
+  }
+
+  export type BorrowRecordUncheckedCreateWithoutMemberInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    bookId: string
+  }
+
+  export type BorrowRecordCreateOrConnectWithoutMemberInput = {
+    where: BorrowRecordWhereUniqueInput
+    create: XOR<BorrowRecordCreateWithoutMemberInput, BorrowRecordUncheckedCreateWithoutMemberInput>
+  }
+
+  export type BorrowRecordCreateManyMemberInputEnvelope = {
+    data: BorrowRecordCreateManyMemberInput | BorrowRecordCreateManyMemberInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BorrowRecordUpsertWithWhereUniqueWithoutMemberInput = {
+    where: BorrowRecordWhereUniqueInput
+    update: XOR<BorrowRecordUpdateWithoutMemberInput, BorrowRecordUncheckedUpdateWithoutMemberInput>
+    create: XOR<BorrowRecordCreateWithoutMemberInput, BorrowRecordUncheckedCreateWithoutMemberInput>
+  }
+
+  export type BorrowRecordUpdateWithWhereUniqueWithoutMemberInput = {
+    where: BorrowRecordWhereUniqueInput
+    data: XOR<BorrowRecordUpdateWithoutMemberInput, BorrowRecordUncheckedUpdateWithoutMemberInput>
+  }
+
+  export type BorrowRecordUpdateManyWithWhereWithoutMemberInput = {
+    where: BorrowRecordScalarWhereInput
+    data: XOR<BorrowRecordUpdateManyMutationInput, BorrowRecordUncheckedUpdateManyWithoutMemberInput>
+  }
+
+  export type BookCreateWithoutBorrowRecordsInput = {
+    bookId?: string
+    title: string
+    genre: string
+    publishedYear: number
+    totalCopies: number
+    availableCopies: number
+  }
+
+  export type BookUncheckedCreateWithoutBorrowRecordsInput = {
+    bookId?: string
+    title: string
+    genre: string
+    publishedYear: number
+    totalCopies: number
+    availableCopies: number
+  }
+
+  export type BookCreateOrConnectWithoutBorrowRecordsInput = {
+    where: BookWhereUniqueInput
+    create: XOR<BookCreateWithoutBorrowRecordsInput, BookUncheckedCreateWithoutBorrowRecordsInput>
+  }
+
+  export type MemberCreateWithoutBorrowRecordsInput = {
+    memberId?: string
+    name: string
+    email: string
+    phone: string
+    membershipDate?: Date | string
+  }
+
+  export type MemberUncheckedCreateWithoutBorrowRecordsInput = {
+    memberId?: string
+    name: string
+    email: string
+    phone: string
+    membershipDate?: Date | string
+  }
+
+  export type MemberCreateOrConnectWithoutBorrowRecordsInput = {
+    where: MemberWhereUniqueInput
+    create: XOR<MemberCreateWithoutBorrowRecordsInput, MemberUncheckedCreateWithoutBorrowRecordsInput>
+  }
+
+  export type BookUpsertWithoutBorrowRecordsInput = {
+    update: XOR<BookUpdateWithoutBorrowRecordsInput, BookUncheckedUpdateWithoutBorrowRecordsInput>
+    create: XOR<BookCreateWithoutBorrowRecordsInput, BookUncheckedCreateWithoutBorrowRecordsInput>
+    where?: BookWhereInput
+  }
+
+  export type BookUpdateToOneWithWhereWithoutBorrowRecordsInput = {
+    where?: BookWhereInput
+    data: XOR<BookUpdateWithoutBorrowRecordsInput, BookUncheckedUpdateWithoutBorrowRecordsInput>
+  }
+
+  export type BookUpdateWithoutBorrowRecordsInput = {
+    bookId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: StringFieldUpdateOperationsInput | string
+    publishedYear?: IntFieldUpdateOperationsInput | number
+    totalCopies?: IntFieldUpdateOperationsInput | number
+    availableCopies?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BookUncheckedUpdateWithoutBorrowRecordsInput = {
+    bookId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: StringFieldUpdateOperationsInput | string
+    publishedYear?: IntFieldUpdateOperationsInput | number
+    totalCopies?: IntFieldUpdateOperationsInput | number
+    availableCopies?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type MemberUpsertWithoutBorrowRecordsInput = {
+    update: XOR<MemberUpdateWithoutBorrowRecordsInput, MemberUncheckedUpdateWithoutBorrowRecordsInput>
+    create: XOR<MemberCreateWithoutBorrowRecordsInput, MemberUncheckedCreateWithoutBorrowRecordsInput>
+    where?: MemberWhereInput
+  }
+
+  export type MemberUpdateToOneWithWhereWithoutBorrowRecordsInput = {
+    where?: MemberWhereInput
+    data: XOR<MemberUpdateWithoutBorrowRecordsInput, MemberUncheckedUpdateWithoutBorrowRecordsInput>
+  }
+
+  export type MemberUpdateWithoutBorrowRecordsInput = {
+    memberId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MemberUncheckedUpdateWithoutBorrowRecordsInput = {
+    memberId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BorrowRecordCreateManyBookInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    memberId: string
+  }
+
+  export type BorrowRecordUpdateWithoutBookInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    member?: MemberUpdateOneRequiredWithoutBorrowRecordsNestedInput
+  }
+
+  export type BorrowRecordUncheckedUpdateWithoutBookInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BorrowRecordUncheckedUpdateManyWithoutBookInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BorrowRecordCreateManyMemberInput = {
+    borrowId?: string
+    borrowDate?: Date | string
+    returnDate: Date | string
+    bookId: string
+  }
+
+  export type BorrowRecordUpdateWithoutMemberInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    book?: BookUpdateOneRequiredWithoutBorrowRecordsNestedInput
+  }
+
+  export type BorrowRecordUncheckedUpdateWithoutMemberInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    bookId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BorrowRecordUncheckedUpdateManyWithoutMemberInput = {
+    borrowId?: StringFieldUpdateOperationsInput | string
+    borrowDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    bookId?: StringFieldUpdateOperationsInput | string
   }
 
 
