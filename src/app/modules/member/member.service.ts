@@ -24,9 +24,21 @@ const getSingleMember = async (id :string)  => {
 
     return result
 }
+
+const getUpdatedMember = async (id :string,payload : any)  => {
+    const result = await prisma.member.update({
+        where : {
+            memberId : id
+        },
+        data : payload
+    })
+
+    return result
+}
  
 export const memberService = {
     createMember,
     getAllMembers,
-    getSingleMember
+    getSingleMember,
+    getUpdatedMember
 }

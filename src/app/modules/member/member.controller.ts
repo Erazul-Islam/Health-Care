@@ -59,9 +59,31 @@ const getSingleMember = async (req: Request, res: Response) => {
     }
 
 }
+const updatedMember = async (req: Request, res: Response) => {
+
+    try {
+
+        const id = req.params.id
+        const data = req.body
+        const result = await memberService.getUpdatedMember(id, data)
+
+        res.status(201).json({
+            success: true,
+            status: 201,
+            message: " Member  updated  successfully",
+            data: result
+        })
+    }
+
+    catch (err) {
+        console.log(err)
+    }
+
+}
 
 export const memberController = {
     createMemberController,
     getAllMembers,
-    getSingleMember
+    getSingleMember,
+    updatedMember
 }
