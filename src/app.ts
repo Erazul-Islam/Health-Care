@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
-import { userRotes } from './app/modules/user/user.routes'
-import { adminRoutes } from './app/modules/admin/admin.routes'
+import { userRoutes } from './app/modules/user/user.routes'
+import router from './app/routes/route'
 
 const app: Application = express()
 
@@ -14,7 +14,6 @@ app.get('/', (req: Request, res: Response) => {
     })
 })
 
-app.use('/api/v1/user',userRotes)
-app.use('/api/v1/admin',adminRoutes)
+app.use('/api/v1',router)
 
 export default app
