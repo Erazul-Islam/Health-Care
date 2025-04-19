@@ -25,6 +25,22 @@ const getAllBooks = async (req:Request,res:Response) => {
         res.status(201).json({
             success : true,
             status : 201,
+            message : "Books retrived successfully",
+            data : result
+        })
+    }
+    catch (err){
+        console.log(err)
+    }
+}
+const getSingleBook = async (req:Request,res:Response) => {
+    try{
+        const id = req.params.id
+        const result = await bookServices.getSingleBooks(id)
+
+        res.status(201).json({
+            success : true,
+            status : 201,
             message : "Book retrived successfully",
             data : result
         })
@@ -36,5 +52,6 @@ const getAllBooks = async (req:Request,res:Response) => {
 
 export const bookController = {
     createBookController,
-    getAllBooks
+    getAllBooks,
+    getSingleBook
 }

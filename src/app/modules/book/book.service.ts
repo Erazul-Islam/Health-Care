@@ -15,7 +15,18 @@ const getAllBooks = async () => {
     return result
 }
 
+const getSingleBooks = async (id:string) => {
+    const result = await prisma.book.findUnique({
+        where : {
+            bookId:id
+        }
+    })
+
+    return result
+}
+
 export const bookServices = {
     addNewBookService,
-    getAllBooks
+    getAllBooks,
+    getSingleBooks
 }
