@@ -35,10 +35,21 @@ const getUpdatedMember = async (id :string,payload : any)  => {
 
     return result
 }
+
+const deleteMember = async (id:string) => {
+    const result = await prisma.member.delete({
+        where : {
+            memberId : id
+        }
+    })
+
+    return result
+}
  
 export const memberService = {
     createMember,
     getAllMembers,
     getSingleMember,
-    getUpdatedMember
+    getUpdatedMember,
+    deleteMember
 }

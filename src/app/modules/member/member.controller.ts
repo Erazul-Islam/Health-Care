@@ -81,9 +81,30 @@ const updatedMember = async (req: Request, res: Response) => {
 
 }
 
+const deleteMember = async (req: Request, res: Response) => {
+
+    try {
+
+        const id = req.params.id
+        await memberService.deleteMember(id)
+
+        res.status(201).json({
+            success: true,
+            status: 201,
+            message: " Member deleted successfully",
+        })
+    }
+
+    catch (err) {
+        console.log(err)
+    }
+
+}
+
 export const memberController = {
     createMemberController,
     getAllMembers,
     getSingleMember,
-    updatedMember
+    updatedMember,
+    deleteMember
 }
