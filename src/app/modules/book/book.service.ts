@@ -46,11 +46,22 @@ const getUpdatedBook = async (id: string, payload: any) => {
     return updatedBook
 }
 
+const deleteBook = async (id:string) => {
+    const result = prisma.book.delete({
+        where : {
+            bookId : id
+        }
+    })
+
+    return result
+}
+ 
 
 
 export const bookServices = {
     addNewBookService,
     getAllBooks,
     getSingleBooks,
-    getUpdatedBook
+    getUpdatedBook,
+    deleteBook
 }
